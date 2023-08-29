@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-primaria: #095513;
+  --cor-secundaria: grey;
+  --cor-footer: #1f2821;
+  --cor-toggle: #121212;
+  --cor-quarta: white;
+  --cor-terciaria: #f5f5f5;
+  --cor-list: #3994cc9b;
+  --cor-footer: #222e26;
+}
+
+body {
+  font-size: 12pt;
+  min-height: 100vh;
+  background-color: transparent;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+main {
+  background: url(./images/FUNDO.jpg) no-repeat center;
+  background: cover;
+  /* min-height: 2503px; */
+}
+
+h1 {
+  color: var(--cor-primaria);
+  font-weight: 900;
+  font-size: 4.2vw;
+}
+
+footer {
+  background-color: var(--cor-footer);
+}
+
+p {
+  margin-bottom: 0;
+}
+
+#redesSociais {
+  margin: auto;
+  padding: 1.2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  color: var(--cor-quarta);
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 1.5em;
+}
+
+i:hover {
+  font-size: 2em;
+}
+
+#linkedin:hover {
+  color: #0077b5;
+}
+#git:hover {
+  color: #6f42c1;
+}
+#email:hover {
+  color: #ffa500;
+}
+
+#desenvolvedor p {
+  margin: auto;
+}
+
+@media (max-width: 480px) {
+body{
+    font-size: 16px
+}}
+
+@media (max-width: 360px) {
+    body{
+        font-size: 16px
+    }}

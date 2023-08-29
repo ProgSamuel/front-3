@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./images/pngfind.com-morty-png-964203.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <title>Rick and Morty</title>
+  </head>
+  <body class="dark-theme text-light">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="d-flex justify-content-end">
+          <i id="theme-toggle" class="bi bi-circle-half text-dark"></i>
+        </div>
+      </div>
+    </div>
+    <header class="container my-5">
+      <div id="titulo" class="mt-5">
+        <!-- <img src="./images/58f37747a4fa116215a92414.png" /> -->
+        <div class="row">
+          <div class="col-10 text-center m-auto fs-1 fw-bold"><h1> Rick and Morty API</h1></div></div>
+      </div>
+      <div class="input-group pb-5">
+        <input id="campoBusca" type="text" class="form-control border border-end-0" placeholder="Search" aria-label="Digite algo" aria-describedby="botao-busca">
+        <button id="btnBuscar" class="btn btn-outline-secondary border border-start-0" type="button" id="botao-busca">
+          <i class="bi bi-search text-center fs-5 fw-bold text-success"></i>
+        </button>
+      </div>
+      <section id="resultadoDaBusca" class="text-dark">
+        <div id="opcoesBusca"></div>
+        <div id="resultado"></div>
+      </section>
+    </header>   
+
+    <main class="container-fluid">
+      <div class="container">
+        <div id="home" class="row py-5"></div>
+        <div>
+          <section class="row"> <!-- PAGINAÇÃO -->
+            <div class="col-12 ">
+            <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+              <ul class="pagination"  id="pag">
+                <li class="page-item ">
+                  <a class="page-link text-bg-dark  p-3 px-5 border-0" id="pagina-anterior" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item" id="pagina-atual"> <a class="page-link text-bg-dark p-3 border-0" href=""><span id="numero-pa"> 1 </span> </a></li>
+                <li class="page-item">
+                  <a class="page-link text-bg-dark p-3 px-5 border-0" id="proxima-pagina" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div> 
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pt-5 text-center fw-medium text-secondary">
+      <div class="container">
+
+        <section id="informacoes" class="row justify-content-center py-5">
+          
+            <p class="col-3">CHARACTERS: <span id="nper"> </span></p>
+            <p class="col-3">LOCATIONS: <span id="nloc"></span></p>
+            <p class="col-3">EPISODES: <span id="nep"></span></p>
+         
+        </section>
+  
+        <section id="desenvolvedor" class="">
+          <section id="redesSociais" class="py-2">
+            
+              <a
+                href="https://www.linkedin.com/in/samuel-ramos-dev/"
+                target="_blank"
+              >
+                <i id="linkedin" class="bi bi-linkedin"></i>
+              </a>
+              <a href="https://github.com/ProgSamuel" target="_blank">
+                <i id="git" class="bi bi-github"></i>
+              </a>
+              <a href="mailto:progsamu@gmail.com" target="_blank">
+                <i id="email" class="bi bi-envelope-fill"></i>
+              </a>
+          </section>
+  
+          <p class="pb-2">Developed by
+            <a href="https://github.com/ProgSamuel" target="_blank">
+             <span class="text-light"> Samuel Ramos </span>
+            </a>
+             in 2023
+          </p>
+        </section>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
