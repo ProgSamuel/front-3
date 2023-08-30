@@ -29,11 +29,11 @@
     [ok] Visto a última vez em:
     [ok] Nome do capítulo (.episode -pegar o utlimo (legth -1))
 
-[] total de 6 cards na tela
-[] dividir os 6 cards em 3 linhas com 2 cards cada
-[] separar cada linha com o linha na cor verde
+[ok] total de 6 cards na tela
+[ok] dividir os 6 cards em 3 linhas com 2 cards cada
+[ok] separar cada linha com o linha na cor verde
 
-[] logo de Rick and Morty
+[ok] logo de Rick and Morty
 
 # footer
 
@@ -48,8 +48,8 @@
 ---
 
 Resumo do que falta
-[] total de 6 cards na tela
-[]Link para abrir a página de detalhes de cada personagem;
+[ok] total de 6 cards na tela
+[] Link para abrir a página de detalhes de cada personagem;
 
 []A página de cada personagem deve ser dinâmica e possuir:
     []A imagem e as informações básicas do personagem (nome, status e espécie);

@@ -174,28 +174,44 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
           estadoPersonagem = '⚪';
   }
 
+  
+
   personagemDiv.innerHTML = `
       <div class="card mb-3 text-light fw-medium rounded-3" style="background-color: #34473B">
-          <div class="px-3">
+          <div class="px-3" onclick="detalhes(this)">
               <div class="row">
                   <div class="col-12 col-sm-12 col-md-4 col-lg-5">
                       <div class="d-flex align-items-center h-100">
-                          <img src="${personagem.image}" class="img-fluid rounded-start" alt="${personagem.name}">
+                          <img id="immagem-card" src="${personagem.image}" class="img-fluid rounded-start" alt="${personagem.name}">
                       </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-8 col-lg-7">
                       <div class="card-body">
-                          <h5 class="card-title fw-semibold">${personagem.name}</h5>
+                          <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
                           <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
                           <p class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location:</span><br>${personagem.location.name}</p>
                           <p class="card-text mb-1"><span class="fw-medium text-secondary">Last seen:</span><br>${ultimoEpisodioName}</p>
                       </div>
                   </div>
               </div>
+            </div>
+
+              
           </div>
       </div>
   `;
+ 
+
   return personagemDiv;
+}
+
+function detalhes(card) {
+  const cardTitle = card.querySelector('.card-title').textContent;
+  const cardStatus = card.querySelector('.card-text.mb-1.fw-medium').textContent;
+
+  console.log(`Name: ${cardTitle}, Status: ${cardStatus}`);
+  console.log(card)
+  
 }
 
 
