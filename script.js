@@ -202,7 +202,7 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
 
 async function buscarPersonagensPaginados(pageNumber) {
   try {
-    const pageSize = 20;
+    const pageSize = 6;
     const response = await axios.get(
       `https://rickandmortyapi.com/api/character/?page=${pageNumber}`
     );
@@ -231,8 +231,8 @@ async function buscarPersonagensPaginados(pageNumber) {
 async function carregarPersonagens(currentPage) {
   try {
     const { personagens, info } = await buscarPersonagensPaginados(currentPage);
-
-    for (const personagem of personagens) {
+    const primeirosSeisPersonagens = personagens.slice(0, 6);
+    for (const personagem of primeirosSeisPersonagens) {
       const ultimoEpisodioName = await buscarNomeUltimoEpisodio(
         personagem.episode[personagem.episode.length - 1]
       );
