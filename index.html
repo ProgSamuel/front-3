@@ -26,20 +26,20 @@
   </head>
   <body class="dark-theme text-light">
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row">
         <div class="d-flex justify-content-end">
           <i id="theme-toggle" class="bi bi-circle-half text-dark"></i>
         </div>
       </div>
-    </div>
-    <header class="container my-5">
-      <div id="titulo" class="mt-5">
+    </div> -->
+    <header class="container-fluid pb-5">
+      <div id="titulo" class="pt-5">
         <!-- <img src="./images/58f37747a4fa116215a92414.png" /> -->
-        <div class="row">
-          <div class="col-10 text-center m-auto fs-1 fw-bold"><h1> Rick and Morty API</h1></div></div>
+        <div class="row pt-5">
+          <div class="col-10 text-center m-auto"><h1 class="fw-bold"> Rick and Morty API</h1></div></div>
       </div>
-      <div class="input-group pb-5">
+      <div class="input-group pb-5 w-75 m-auto">
         <input id="campoBusca" type="text" class="form-control border border-end-0" placeholder="Search" aria-label="Digite algo" aria-describedby="botao-busca">
         <button id="btnBuscar" class="btn btn-outline-secondary border border-start-0" type="button" id="botao-busca">
           <i class="bi bi-search text-center fs-5 fw-bold text-success"></i>
@@ -83,9 +83,9 @@
 
         <section id="informacoes" class="row justify-content-center py-5">
           
-            <p class="col-3">CHARACTERS: <span id="nper"> </span></p>
-            <p class="col-3">LOCATIONS: <span id="nloc"></span></p>
-            <p class="col-3">EPISODES: <span id="nep"></span></p>
+            <p class="col-md-3 col-sm-5">CHARACTERS: <span id="nper"> </span></p>
+            <p class="col-md-3 col-sm-5">LOCATIONS: <span id="nloc"></span></p>
+            <p class="col-md-3 col-sm-5">EPISODES: <span id="nep"></span></p>
          
         </section>
   
@@ -115,6 +115,7 @@
         </section>
       </div>
     </footer>
+
 
     <script src="./script.js"></script>
   </body>

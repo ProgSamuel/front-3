@@ -17,20 +17,17 @@
 body {
   font-size: 12pt;
   min-height: 100vh;
-  background-color: transparent;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  background: url(./images/FUNDO.jpg);
+
 }
 
-main {
-  background: url(./images/FUNDO.jpg) no-repeat center;
-  background: cover;
-  /* min-height: 2503px; */
+header {
+background-color: white;
 }
 
 h1 {
   color: var(--cor-primaria);
-  font-weight: 900;
-  font-size: 4.2vw;
+  font-size: 5em;
 }
 
 footer {
@@ -75,12 +72,19 @@ i:hover {
   margin: auto;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 840px) {
 body{
     font-size: 16px
+}
+h1{
+  font-size: 4em;
 }}
 
-@media (max-width: 360px) {
+@media (max-width: 430px) {
     body{
         font-size: 16px
-    }}
+    }
+    h1{
+      font-size: 1.7em;
+    }
+  }
