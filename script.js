@@ -16,15 +16,13 @@ const efeito = `<div class="loader">
 </div> `;
 
 let currentPage = 1;
-// const body = document.body;
-
 // informações da API - quantidade
 axios
   .get(apiUrl + 'character')
   .then((response) => {
     const quantidadePersonagens = response.data.info.count;
     const nper = document.getElementById('nper');
-    nper.innerHTML = `${quantidadePersonagens}`;
+    nper.innerHTML = quantidadePersonagens;
   })
   .catch((error) => {
     console.error('Erro ao obter quantidade de personagens:', error);
@@ -71,40 +69,48 @@ async function mostrarPersonagem(personagem) {
     const ultimoEpisodioName = await buscarNomeUltimoEpisodio(
       personagem.episode[personagem.episode.length - 1]
     );
+    resultado.innerHTML = efeito
 
-    let estadoPersonagem = '';
-    switch (personagem.status) {
-      case 'Alive':
-        estadoPersonagem = '🟢';
-        break;
-      case 'Dead':
-        estadoPersonagem = '🔴';
-        break;
-      default:
-        estadoPersonagem = '⚪';
-    }
+    setTimeout(function() {
+      let estadoPersonagem = '';
+      switch (personagem.status) {
+        case 'Alive':
+          estadoPersonagem = '🟢';
+          break;
+        case 'Dead':
+          estadoPersonagem = '🔴';
+          break;
+        default:
+          estadoPersonagem = '⚪';
+      }
+  
+      resultado.innerHTML = `
+      <div class="card m-auto mb-3 text-light fw-medium rounded-3 rounded-start-5 rounded-end-1">
+        <div class="m-0 border rounded-start-5 border-5 border-black" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="row w-100" onclick="detalhes(event)">
+                <div class="w-100 col-sm-12 col-md-6 col-lg-4  "> 
+                    <div class="row">
+                        
+                        <img id="imagem-card" src="${personagem.image}" class="rounded-start-5 img-fluid col-6 " alt="${personagem.name}">
+                        <div class="card-body  col-6  m-auto">
+                          <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
+                          <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
+                          <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
+                          <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
+                        </div>
+                    </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      `
+  
+      campoBusca.innerHTML = '';
+    }, 2500); 
 
-    resultado.innerHTML = `
-    <div class="card mb-3 text-light fw-medium rounded-3" style="max-width: 540px; min-height: 220px; background-color: #34473B">
-    <div class="row g-0 fs-6 px-3">
-    
-      <div class="col-md-4">
-        <div class="d-flex align-items-center h-100"> 
-        <img src="${personagem.image}" class="img-fluid rounded-start" alt="personagem.name">
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">${personagem.name}</h5>
-          <p class="card-text mb-1 fw-medium"> ${estadoPersonagem} ${personagem.status} - ${personagem.species} </p>
-          <p class="card-text mb-1"> <span class="fw-medium text-secondary"> Last Known Location: </span><br>${personagem.location.name} </p>
-          <p class="card-text mb-1"> <span class="fw-medium text-secondary"> Last seen:</span><br>${ultimoEpisodioName} </p>
-        </div>
-      </div>
-    </div>
-    </div>
-    `;
-    campoBusca.innerHTML = '';
+ 
   } catch (error) {
     console.error('Error showing character:', error);
     resultado.innerHTML = 'An error occurred while displaying the character.';
@@ -120,9 +126,9 @@ function buscarPersonagem(nome) {
       const personagens = response.data.results;
 
       if (personagens.length > 0) {
-        mostrarPersonagem(personagens[0]);
+          mostrarPersonagem(personagens[0]);
       } else {
-        resultado.innerHTML = 'Character not found.';
+        resultado.innerHTML = 'Character not found.'; 
       }
 
       exibirOpcoesBusca(personagens);
@@ -130,6 +136,7 @@ function buscarPersonagem(nome) {
     .catch((error) => {
       console.error('Error fetching character:', error);
       resultado.innerHTML = 'An error occurred while fetching the character.';
+
     });
 }
 
@@ -172,7 +179,7 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
   loading.innerHTML = efeito;
 
   const personagemDiv = document.createElement('div');
-  personagemDiv.classList.add('col-12', 'col-md-6'); // Ajuste as classes das colunas aqui
+  personagemDiv.classList.add('col-12', 'col-md-6'); 
 
   let estadoPersonagem = '';
   switch (personagem.status) {
@@ -185,37 +192,28 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
     default:
       estadoPersonagem = '⚪';
   }
-
-  
-
   personagemDiv.innerHTML = `
-      <div class="card mb-3 text-light fw-medium rounded-3" style="background-color: #34473B">
-          <div class="px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-
-              <div class="row" onclick="detalhes(event)">
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-5">
-                      <div class="d-flex align-items-center h-100">
-                          <img id="imagem-card" src="${personagem.image}" class="img-fluid rounded-start" alt="${personagem.name}">
+  <div class="card m-auto mb-3 text-light fw-medium rounded-3 rounded-start-5 rounded-end-1">
+      <div class="m-0 border rounded-start-5 border-5 border-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row w-100" onclick="detalhes(event)">
+              <div class="w-100 col-sm-12 col-md-6 col-lg-4  "> 
+                  <div class="row">
+                      
+                      <img id="imagem-card" src="${personagem.image}" class="rounded-start-5 img-fluid col-6 " alt="${personagem.name}">
+                      <div class="card-body  col-6  m-auto">
+                        <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
+                        <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
+                        <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
+                        <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
                       </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-8 col-lg-7">
-                      <div class="card-body">
-                          <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
-                          <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
-                          <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
-                          <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
-                          
-                      </div>
-                  </div> 
-                  
-                </div>
-
-              </div>
+              </div> 
             </div>
           </div>
+        </div>
       </div>
-  `;
-
+  </div>
+`;
   loading.innerHTML = "";
 
   return personagemDiv;

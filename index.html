@@ -25,21 +25,13 @@
     <title>Rick and Morty</title>
   </head>
   <body class="dark-theme text-light">
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="d-flex justify-content-end">
-          <i id="theme-toggle" class="bi bi-circle-half text-dark"></i>
-        </div>
-      </div>
-    </div> -->
     <header class="container-fluid pb-5">
       <div class="row">
         <div class="d-flex justify-content-start mt-1">
-          <img id="img-topo" src="./images/leilanis-attic-rick-and-morty-logo-28413130309681.webp" />
+          <a href="#"><img id="img-topo" src="./images/leilanis-attic-rick-and-morty-logo-28413130309681.webp" /></a>
         </div>
         <div class="row pt-5">
-          <div class="col-10 text-center m-auto"><h1 class="fw-bold"> Rick and Morty API</h1></div></div>
+          <div class="col-12 w-75 text-center m-auto" id="title-principal" ><h1 class="fw-bold animation"> Rick and Morty API</h1></div></div>
       </div>
       <div class="input-group pb-5 w-75 m-auto">
         <input id="campoBusca" type="text" class="form-control border border-end-0" placeholder="Search" aria-label="Digite algo" aria-describedby="botao-busca">
@@ -74,13 +66,13 @@
                   <div class="d-flex align-items-center h-100 justify-content-center" >
                     <div id="click-image"></div>
                 </div>
-                <div class="card-body fw-medium pt-5 pb-1 row">
+                <div class="card-body fw-medium pt-5 pt-sm-1 pb-1 pb-sm-0 row">
                   <p class="card-text mb-3 col-9 m-auto" id="click-status"> </p>
                   <p class="card-text mb-3 col-9 m-auto" id="click-location"> </p>
                   <p class="card-text mb-3 col-9 m-auto" id="click-episode"> </p>
               </div>
                 </div>
-                <div class="modal-footer m-4">
+                <div class="modal-footer m-4 m-sm-0">
                   <button type="button" class="btn btn-danger py-2 px-4 fw-medium" data-bs-dismiss="modal"> Go Back </button>
                 </div>
               </div> 
@@ -89,20 +81,20 @@
           </div>
 
 
-        <div id="home" class="row py-5" ></div>
+        <div id="home" class="row py-5 m-auto" ></div>
         <div>
           <section class="row"> <!-- PAGINAÇÃO -->
             <div class="col-12 ">
             <nav class="d-flex justify-content-center" aria-label="Page navigation example">
               <ul class="pagination"  id="pag">
                 <li class="page-item ">
-                  <a class="page-link text-bg-dark  p-3 px-5 border-0" id="pagina-anterior" href="#" aria-label="Previous">
+                  <a class="page-link page-boot  p-3 px-5 border-0" id="pagina-anterior" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                   </a>
                 </li>
-                <li class="page-item" id="pagina-atual"> <a class="page-link text-bg-dark p-3 border-0" href=""><span id="numero-pa"> 1 </span> </a></li>
+                <li class="page-item" id="pagina-atual"> <a class="page-link page-boot p-3 border-0" href=""><span id="numero-pa"> 1 </span> </a></li>
                 <li class="page-item">
-                  <a class="page-link text-bg-dark p-3 px-5 border-0" id="proxima-pagina" href="#" aria-label="Next">
+                  <a class="page-link page-boot p-3 px-5 border-0" id="proxima-pagina" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                   </a>
                 </li>
@@ -126,7 +118,7 @@
         </section>
   
         <section id="desenvolvedor" class="">
-          <section id="redesSociais" class="py-2">
+          <section id="redesSociais" class="py-2 ">
             
               <a
                 href="https://www.linkedin.com/in/samuel-ramos-dev/"

@@ -62,5 +62,5 @@ Resumo do que falta
  [] A lista de personagens deve:
 - Conter animações:
     []Pelo menos 3 animações.
-    []@keyframes com diferentes pontos de parada.
-    []Uso de easings e do cubic-bezier.
+    [ok]@keyframes com diferentes pontos de parada.
+    [ok]Uso de easings e do cubic-bezier.
