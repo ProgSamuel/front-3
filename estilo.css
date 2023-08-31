@@ -33,12 +33,24 @@ h1 {
 }
 
 main {
-  /* height: 150em; */
   padding-bottom: 30%;
 }
 
 footer {
   background-color: var(--cor-footer);
+}
+
+#nper,
+#nloc,
+#nep {
+  color: #f4d03f;
+  font-size: 1.2em;
+  letter-spacing: 0.5ch;
+}
+
+.autor{
+  color: #00ff00a0;
+
 }
 
 p {
@@ -79,33 +91,32 @@ i:hover {
   margin: auto;
 }
 
-#img-topo{
+#img-topo {
   width: 30px;
   height: 30px;
 }
 
-.card:hover{
+.card:hover {
   transition: 0.3s ease;
-  transform: scale(.9);
-  border: 3px solid #00FF00;
-  /* border: 1px solid #ccc; */
+  transform: scale(0.9);
+  border: 3px solid #00ff00;
   box-shadow: 0 0 10px 10px rgba(185, 180, 180, 0.4);
 }
 
-/* Verde Game 4 */
-.click-bg  {
-  background:url(./images/opcoes/1.jpg);
+.click-bg {
+  background: url(./images/opcoes/1.jpg);
   background: cover;
-  border: 2px solid #00FF00;
+  border: 2px solid #00ff00;
   border-radius: 55px;
 }
 
-.dps-click{
+.dps-click {
   background-color: rgba(3, 3, 3, 0.5);
   border-radius: inherit;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   border: none;
 }
 
