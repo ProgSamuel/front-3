@@ -70,7 +70,7 @@ async function mostrarPersonagem(personagem) {
     const ultimoEpisodioName = await buscarNomeUltimoEpisodio(
       personagem.episode[personagem.episode.length - 1]
     );
-    resultado.innerHTML = efeito
+    resultado.innerHTML = `<div class="d-flex justify-content-center"> ${efeito} </div>`
 
     setTimeout(function() {
       let estadoPersonagem = '';
