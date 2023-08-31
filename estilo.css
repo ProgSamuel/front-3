@@ -32,7 +32,7 @@ h1 {
 .animation {
   white-space: nowrap;
   overflow: hidden;
-  animation: typewriter 2s steps(15)alternate, blink 800ms  steps(15) normal;
+  animation: typewriter 2s steps(15) alternate, blink 800ms steps(15) normal;
   /* border-right: 0px solid black; */
 }
 @keyframes typewriter {
@@ -119,13 +119,9 @@ i:hover {
 }
 
 .card {
- max-height: 240px;
+  min-height: 240px;
   max-width: 540px;
   background-color: #051404;
-}
-
-#imagem-card, .card-body {
-  height: 240px;
 }
 
 .page-boot {
@@ -133,7 +129,7 @@ i:hover {
   color: #00ff00;
 }
 
-.page-boot:hover{
+.page-boot:hover {
   background-color: #00ff00;
   color: var(--cor-footer);
 }
@@ -204,7 +200,7 @@ i:hover {
     transform: rotate(360deg);
   }
 }
-.modal-dialog{
+.modal-dialog {
   font-size: 1.5em;
   font-weight: 600;
 }
@@ -216,19 +212,20 @@ i:hover {
   h1 {
     font-size: 4em;
   }
- 
-  #imagem-card, .card-body {
-font-size: .7em;  
-height: 220px;
+
+  .card {
+    min-height: 200px;
+  }
+
+  #imagem-card,
+  .card-body {
+    font-size: 0.7em;
+    min-height: 200px;
+  }
+  .modal-dialog {
+    font-size: 2em;
+  }
 }
-.modal-dialog{
-  font-size: 2em;
-}
-}
-
-
-
-
 
 @media (max-width: 430px) {
   body {
@@ -238,33 +235,35 @@ height: 220px;
   h1 {
     font-size: 1.7em;
   }
-  #imagem-card, .card-body {
-    font-size: .7em;  
-    max-height: 240px;
+ *
+  #location,
+  #episodio {
+    font-size: 0.6;
   }
-  #location, #episodio {
-    font-size: .6;
-  }
-  .modal-dialog{
+  .modal-dialog {
     font-size: 1.5em;
     font-weight: 400;
   }
 }
 
 @media (max-width: 375px) {
- 
   h1 {
     font-size: 1.4em;
   }
-  #imagem-card, .card-body {
-    font-size: .6em;  
-    max-height: 220px;
+  .card {
+    min-height: 160px;
+  }
+
+  #imagem-card,
+  .card-body {
+    font-size: 0.6em;
+    min-height: 160px;
   }
 
   .crad-body {
     margin-top: 2px;
   }
- 
+
   .modal-dialog img {
     height: 200px;
   }
