@@ -54,7 +54,39 @@
     </header>   
 
     <main class="container-fluid">
+
       <div class="container">
+        <div class="row text-light">
+          
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            
+            
+
+            <div class="modal-dialog">
+              <div class="modal-content click-bg">
+                <div id="loading" class="dps-click py-4 d-flex justify-content-center"></div>
+
+                <div class="modal-header dps-click w-100">
+                  <h1 class="modal-title fs-1 fw-bold text-light w-100 text-center" id="exampleModalLabel">  <span id="click-titulo"></span> </h1>
+                </div>
+                <div class="modal-body dps-click">
+                  <div class="d-flex align-items-center h-100 justify-content-center" >
+                    <div id="click-image"></div>
+                </div>
+                <div class="card-body fw-medium py-4 dps-click" style="margin-left: 80px;">
+                  <p class="card-text mb-1" id="click-status"> </p>
+                  <p class="card-text mb-1" id="click-location"> </p>
+                  <p class="card-text mb-1" id="click-episode"> </p>
+              </div>
+                </div>
+                <div class="modal-footer dps-click">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Go Back</button>
+                </div>
+              </div> <!-- fecha  -->
+            </div>
+          </div>
+
+
         <div id="home" class="row py-5" ></div>
         <div>
           <section class="row"> <!-- PAGINAÇÃO -->

@@ -49,15 +49,15 @@
 
 Resumo do que falta
 [ok] total de 6 cards na tela
-[] Link para abrir a página de detalhes de cada personagem;
+[ok] Link para abrir a página de detalhes de cada personagem;
 
 []A página de cada personagem deve ser dinâmica e possuir:
-    []A imagem e as informações básicas do personagem (nome, status e espécie);
-    []As informações sobre a localização do personagem;
-    []Um botão para voltar à tela da lista.
+    [ok]A imagem e as informações básicas do personagem (nome, status e espécie);
+    [ok]As informações sobre a localização do personagem;
+    [ok]Um botão para voltar à tela da lista.
 
-[]Bootstrap
-    []Componentes (Buttons, alerts, modais, formulários, pagination, etc).
+[ok]Bootstrap
+    [ok]Componentes (Buttons, alerts, modais, formulários, pagination, etc).
 
  [] A lista de personagens deve:
 - Conter animações:

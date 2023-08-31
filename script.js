@@ -6,6 +6,15 @@ const homeDiv = document.getElementById('home');
 const pag = document.getElementById('pag');
 const numeroPa = document.getElementById('numero-pa');
 const apiLink = document.getElementById('api-link');
+const loading = document.getElementById('loading');
+const efeito = `<div class="loader">
+<div class="orbe" style="--index: 0"></div>
+<div class="orbe" style="--index: 1"></div>
+<div class="orbe" style="--index: 2"></div>
+<div class="orbe" style="--index: 3"></div>
+<div class="orbe" style="--index: 4"></div>
+</div> `;
+
 let currentPage = 1;
 // const body = document.body;
 
@@ -57,6 +66,7 @@ async function buscarNomeUltimoEpisodio(urlEpisodio) {
 }
 
 async function mostrarPersonagem(personagem) {
+  loading.innerHTML = efeito;
   try {
     const ultimoEpisodioName = await buscarNomeUltimoEpisodio(
       personagem.episode[personagem.episode.length - 1]
@@ -159,62 +169,86 @@ opcoesBusca.addEventListener('click', () => {
 
 // exibição dos personagens na home --------------------------------
 function criarElementoPersonagem(personagem, ultimoEpisodioName) {
+  loading.innerHTML = efeito;
+
   const personagemDiv = document.createElement('div');
   personagemDiv.classList.add('col-12', 'col-md-6'); // Ajuste as classes das colunas aqui
 
   let estadoPersonagem = '';
   switch (personagem.status) {
-      case 'Alive':
-          estadoPersonagem = '🟢';
-          break;
-      case 'Dead':
-          estadoPersonagem = '🔴';
-          break;
-      default:
-          estadoPersonagem = '⚪';
+    case 'Alive':
+      estadoPersonagem = '🟢';
+      break;
+    case 'Dead':
+      estadoPersonagem = '🔴';
+      break;
+    default:
+      estadoPersonagem = '⚪';
   }
 
   
 
   personagemDiv.innerHTML = `
       <div class="card mb-3 text-light fw-medium rounded-3" style="background-color: #34473B">
-          <div class="px-3" onclick="detalhes(this)">
-              <div class="row">
+          <div class="px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+              <div class="row" onclick="detalhes(event)">
                   <div class="col-12 col-sm-12 col-md-4 col-lg-5">
                       <div class="d-flex align-items-center h-100">
-                          <img id="immagem-card" src="${personagem.image}" class="img-fluid rounded-start" alt="${personagem.name}">
+                          <img id="imagem-card" src="${personagem.image}" class="img-fluid rounded-start" alt="${personagem.name}">
                       </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-8 col-lg-7">
                       <div class="card-body">
                           <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
                           <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
-                          <p class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location:</span><br>${personagem.location.name}</p>
-                          <p class="card-text mb-1"><span class="fw-medium text-secondary">Last seen:</span><br>${ultimoEpisodioName}</p>
+                          <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
+                          <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
+                          
                       </div>
-                  </div>
+                  </div> 
+                  
+                </div>
+
               </div>
             </div>
-
-              
           </div>
       </div>
   `;
- 
+
+  loading.innerHTML = "";
 
   return personagemDiv;
 }
 
-function detalhes(card) {
-  const cardTitle = card.querySelector('.card-title').textContent;
-  const cardStatus = card.querySelector('.card-text.mb-1.fw-medium').textContent;
+function detalhes(event) {
+loading.innerHTML = efeito;
 
-  console.log(`Name: ${cardTitle}, Status: ${cardStatus}`);
-  console.log(card)
-  
+const card = event.currentTarget;
+const cardTitle = card.querySelector('.card-title').textContent;
+const cardStatus = card.querySelector(
+'.card-text.mb-1.fw-medium'
+).textContent;
+const cardLocation = card.querySelector('#location').textContent;
+const cardEpisodio = card.querySelector('#episodio').textContent;
+const cardImage = card.querySelector('img').src;
+
+const clickTitle = document.getElementById('click-titulo');
+const clickStatus = document.getElementById('click-status');
+const clickLocation = document.getElementById('click-location');
+const clickEpisode = document.getElementById('click-episode');
+const clickImage = document.getElementById('click-image');
+
+setTimeout(function() {
+  clickTitle.textContent = cardTitle;
+  clickStatus.textContent = cardStatus;
+  clickLocation.textContent = cardLocation;
+  clickEpisode.textContent = cardEpisodio;
+  clickImage.innerHTML = `<img src="${cardImage}" class="img-fluid rounded center" alt="">`;
+
+  loading.innerHTML = "";
+}, 1500); 
 }
-
-
 
 async function buscarPersonagensPaginados(pageNumber) {
   try {
