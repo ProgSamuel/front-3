@@ -6,6 +6,7 @@ const homeDiv = document.getElementById('home');
 const pag = document.getElementById('pag');
 const numeroPa = document.getElementById('numero-pa');
 const apiLink = document.getElementById('api-link');
+const carregarPerso = document.getElementById('carregarPerso');
 const loading = document.getElementById('loading');
 const efeito = `<div class="loader">
 <div class="orbe" style="--index: 0"></div>
@@ -176,46 +177,49 @@ opcoesBusca.addEventListener('click', () => {
 
 // exibição dos personagens na home --------------------------------
 function criarElementoPersonagem(personagem, ultimoEpisodioName) {
-  loading.innerHTML = efeito;
 
+  carregarPerso.innerHTML = efeito;
   const personagemDiv = document.createElement('div');
   personagemDiv.classList.add('col-12', 'col-md-6'); 
 
-  let estadoPersonagem = '';
-  switch (personagem.status) {
-    case 'Alive':
-      estadoPersonagem = '🟢';
-      break;
-    case 'Dead':
-      estadoPersonagem = '🔴';
-      break;
-    default:
-      estadoPersonagem = '⚪';
-  }
-  personagemDiv.innerHTML = `
-  <div class="card m-auto mb-3 text-light fw-medium rounded-3 rounded-start-5 rounded-end-1">
-      <div class="m-0 border rounded-start-5 border-5 border-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <div class="row w-100" onclick="detalhes(event)">
-              <div class="w-100 col-sm-12 col-md-6 col-lg-4  "> 
-                  <div class="row">
-                      
-                      <img id="imagem-card" src="${personagem.image}" class="rounded-start-5 img-fluid col-6 " alt="${personagem.name}">
-                      <div class="card-body  col-6  m-auto">
-                        <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
-                        <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
-                        <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
-                        <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
-                      </div>
-                  </div>
-              </div> 
+  setTimeout(() => {
+   
+    let estadoPersonagem = '';
+    switch (personagem.status) {
+      case 'Alive':
+        estadoPersonagem = '🟢';
+        break;
+      case 'Dead':
+        estadoPersonagem = '🔴';
+        break;
+      default:
+        estadoPersonagem = '⚪';
+    }
+    personagemDiv.innerHTML = `
+    <div class="card m-auto mb-3 text-light fw-medium rounded-3 rounded-start-5 rounded-end-1">
+        <div class="m-0 border rounded-start-5 border-5 border-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="row w-100" onclick="detalhes(event)">
+                <div class="w-100 col-sm-12 col-md-6 col-lg-4  "> 
+                    <div class="row">
+                        
+                        <img id="imagem-card" src="${personagem.image}" class="rounded-start-5 img-fluid col-6 " alt="${personagem.name}">
+                        <div class="card-body  col-6  m-auto">
+                          <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
+                          <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
+                          <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
+                          <p id="episodio" class="card-text mb-1"><span class="fw-medium text-secondary">Last seen: </span><br>${ultimoEpisodioName}</p>
+                        </div>
+                    </div>
+                </div> 
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  </div>
-`;
-  loading.innerHTML = "";
-
+    </div>
+  `;
+  carregarPerso.innerHTML = "";
+  
+  }, 1500)
   return personagemDiv;
 }
 

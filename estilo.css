@@ -58,6 +58,13 @@ main {
   padding-bottom: 30%;
 }
 
+
+.opcao-busca:hover{
+  background-color: #0076b58a;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 footer {
   background-color: var(--cor-footer);
 }
