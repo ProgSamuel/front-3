@@ -84,14 +84,24 @@ i:hover {
   height: 30px;
 }
 
+.card:hover{
+  transition: 0.3s ease;
+  transform: scale(.9);
+  border: 3px solid #00FF00;
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 0 10px 10px rgba(185, 180, 180, 0.4);}
+
 /* Verde Game 4 */
 .click-bg  {
   background:url(./images/opcoes/1.jpg);
   background: cover;
+  border: 2px solid #00FF00;
+  border-radius: 55px;
 }
 
 .dps-click{
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 255, 0, 0.2);
+  border-radius: inherit;
 }
 
 .modal-header, .modal-footer {
