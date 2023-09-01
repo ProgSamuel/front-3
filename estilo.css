@@ -7,6 +7,7 @@
   --cor-primaria: #095513;
   --cor-quarta: white;
   --cor-footer: #222e26;
+  --cor-verde-neom: #00ff00;
 }
 
 body {
@@ -27,21 +28,15 @@ header {
 h1 {
   color: var(--cor-primaria);
   font-size: 5em;
-  width: 100%;
 }
 .animation {
   white-space: nowrap;
   overflow: hidden;
   animation: typewriter 2s steps(15) alternate, blink 800ms steps(15) normal;
-  /* border-right: 0px solid black; */
 }
 @keyframes typewriter {
-  from {
-    width: 0ch;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0ch;}
+  to { width: 100%;}
 }
 @keyframes blink {
   from {
@@ -55,7 +50,7 @@ h1 {
 }
 
 main {
-  padding-bottom: 30%;
+  padding-bottom: 15%;
 }
 
 
@@ -72,28 +67,22 @@ footer {
 #nper,
 #nloc,
 #nep {
-  color: #00ff00;
+  color: var(--cor-verde-neom);
   font-size: 1.2em;
   letter-spacing: 0.5ch;
   margin-left: 0.5ch;
 }
 
-.autor {
-  color: #00ff00a0;
-}
+.autor { color: var(--cor-verde-neom);}
 
-p {
-  margin-bottom: 0;
-}
+p { margin-bottom: 0;}
 
 #redesSociais {
   margin: auto;
   padding: 1.2em;
 }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none;}
 
 i {
   color: var(--cor-quarta);
@@ -133,7 +122,7 @@ i:hover {
 
 .page-boot {
   background-color: var(--cor-footer);
-  color: #00ff00;
+  color: var(--cor-verde-neom);
 }
 
 .page-boot:hover {
@@ -144,14 +133,14 @@ i:hover {
 .card:hover {
   transition: 0.3s ease;
   transform: scale(0.9);
-  border: 3px solid #00ff00;
+  border: 3px solid var(--cor-verde-neom);
   box-shadow: 0 0 10px 10px rgba(185, 180, 180, 0.4);
 }
 
 .click-bg {
   background: url(./images/opcoes/1.jpg);
   background: cover;
-  border: 3px solid #00ff00;
+  border: 3px solid var(--cor-verde-neom);
   border-radius: 55px;
 }
 
@@ -213,25 +202,21 @@ i:hover {
 }
 
 @media (max-width: 840px) {
-  body {
-    font-size: 16px;
-  }
-  h1 {
-    font-size: 4em;
-  }
+body { font-size: 16px;}
 
-  .card {
-    min-height: 200px;
-  }
+h1 { font-size: 4em;}
 
-  #imagem-card,
-  .card-body {
-    font-size: 0.7em;
-    min-height: 200px;
-  }
-  .modal-dialog {
-    font-size: 2em;
-  }
+.card { min-height: 200px;}
+
+#imagem-card, 
+.card-body {
+  font-size: 0.7em;
+  min-height: 200px;
+}
+
+.modal-dialog {
+  font-size: 2em;
+}
 }
 
 @media (max-width: 430px) {
@@ -239,10 +224,7 @@ i:hover {
     font-size: 16px;
     background-attachment: fixed;
   }
-  h1 {
-    font-size: 1.7em;
-  }
- *
+  h1 {font-size: 1.7em;}
   #location,
   #episodio {
     font-size: 0.6;

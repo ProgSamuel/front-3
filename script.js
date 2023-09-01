@@ -75,14 +75,9 @@ async function mostrarPersonagem(personagem) {
     setTimeout(function() {
       let estadoPersonagem = '';
       switch (personagem.status) {
-        case 'Alive':
-          estadoPersonagem = '🟢';
-          break;
-        case 'Dead':
-          estadoPersonagem = '🔴';
-          break;
-        default:
-          estadoPersonagem = '⚪';
+        case 'Alive': estadoPersonagem = '🟢'; break;
+        case 'Dead': estadoPersonagem = '🔴'; break;
+        default: estadoPersonagem = '⚪';
       }
   
       resultado.innerHTML = `
@@ -107,11 +102,8 @@ async function mostrarPersonagem(personagem) {
         </div>
     </div>
       `
-  
       campoBusca.innerHTML = '';
     }, 2500); 
-
- 
   } catch (error) {
     console.error('Error showing character:', error);
     resultado.innerHTML = 'An error occurred while displaying the character.';
@@ -164,7 +156,7 @@ campoBusca.addEventListener('input', () => {
     opcoesBusca.innerHTML = '';
     resultado.innerHTML = '';
   } else {
-    opcoesBusca.innerHTML = ''; // Limpar opções de busca quando o usuário digitar algo
+    opcoesBusca.innerHTML = '';
     buscarPersonagem(nomePersonagem);
   }
 });
@@ -185,16 +177,11 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
   setTimeout(() => {
    
     let estadoPersonagem = '';
-    switch (personagem.status) {
-      case 'Alive':
-        estadoPersonagem = '🟢';
-        break;
-      case 'Dead':
-        estadoPersonagem = '🔴';
-        break;
-      default:
-        estadoPersonagem = '⚪';
-    }
+      switch (personagem.status) {
+        case 'Alive': estadoPersonagem = '🟢'; break;
+        case 'Dead': estadoPersonagem = '🔴'; break;
+        default: estadoPersonagem = '⚪';
+      }
     personagemDiv.innerHTML = `
     <div class="card m-auto mb-3 text-light fw-medium rounded-3 rounded-start-5 rounded-end-1">
         <div class="m-0 border rounded-start-5 border-5 border-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -203,7 +190,7 @@ function criarElementoPersonagem(personagem, ultimoEpisodioName) {
                     <div class="row">
                         
                         <img id="imagem-card" src="${personagem.image}" class="rounded-start-5 img-fluid col-6 " alt="${personagem.name}">
-                        <div class="card-body  col-6  m-auto">
+                        <div class="card-body  col-6  m-auto" id="card-texto1">
                           <h5 class="card-title fw-semibold" id="titulo-card">${personagem.name}</h5>
                           <p class="card-text mb-1 fw-medium">${estadoPersonagem} ${personagem.status} - ${personagem.species}</p>
                           <p id="location" class="card-text mb-1"><span class="fw-medium text-secondary">Last Known Location: </span><br>${personagem.location.name}</p>
@@ -228,9 +215,7 @@ loading.innerHTML = efeito;
 
 const card = event.currentTarget;
 const cardTitle = card.querySelector('.card-title').textContent;
-const cardStatus = card.querySelector(
-'.card-text.mb-1.fw-medium'
-).textContent;
+const cardStatus = card.querySelector('.card-text.mb-1.fw-medium').textContent;
 const cardLocation = card.querySelector('#location').textContent;
 const cardEpisodio = card.querySelector('#episodio').textContent;
 const cardImage = card.querySelector('img').src;
@@ -263,19 +248,12 @@ async function buscarPersonagensPaginados(pageNumber) {
     // Retornar a lista de personagens e informações de paginação
     return {
       personagens: data.results,
-      info: {
-        currentPage: data.info.page,
-        totalPages: Math.ceil(data.info.count / pageSize),
-      },
+      info: { currentPage: data.info.page, totalPages: Math.ceil(data.info.count / pageSize),},
     };
   } catch (error) {
     console.error('Error when fetching paginated characters:', error);
-    return {
-      personagens: [],
-      info: {
-        currentPage: 1,
-        totalPages: 1,
-      },
+    return { personagens: [],
+      info: {currentPage: 1, totalPages: 1,},
     };
   }
 }
@@ -283,15 +261,12 @@ async function buscarPersonagensPaginados(pageNumber) {
 async function carregarPersonagens(currentPage) {
   try {
     const { personagens, info } = await buscarPersonagensPaginados(currentPage);
-    const primeirosSeisPersonagens = personagens.slice(0, 6);
+    const primeirosSeisPersonagens = personagens.slice(0, 12);
     for (const personagem of primeirosSeisPersonagens) {
       const ultimoEpisodioName = await buscarNomeUltimoEpisodio(
         personagem.episode[personagem.episode.length - 1]
       );
-      const personagemDiv = criarElementoPersonagem(
-        personagem,
-        ultimoEpisodioName
-      );
+      const personagemDiv = criarElementoPersonagem( personagem, ultimoEpisodioName);
       homeDiv.appendChild(personagemDiv);
     }
   } catch (error) {
@@ -328,19 +303,3 @@ document
   .addEventListener('click', carregarProximaPagina);
 
 carregarPersonagens(currentPage);
-
-// mudar tema
-
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-personagem = document.querySelectorAll('.personagem');
-
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark-theme');
-});
-
-window.addEventListener('load', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-});
