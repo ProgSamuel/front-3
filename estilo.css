@@ -55,10 +55,16 @@ main {
 
 
 .opcao-busca:hover{
-  background-color: #0076b58a;
+  background-color: #00ff009a;
   cursor: pointer;
   border-radius: 5px;
+  color: var(--cor-footer);
+  transition: 0.3s ease;
+  transform: scale(1.05);
+  border: 3px solid var(--cor-verde-neom);
+  box-shadow: 0 0 10px 10px rgba(185, 180, 180, 0.4);
 }
+
 
 footer {
   background-color: var(--cor-footer);
@@ -225,6 +231,7 @@ h1 { font-size: 4em;}
     background-attachment: fixed;
   }
   h1 {font-size: 1.7em;}
+  
   #location,
   #episodio {
     font-size: 0.6;
